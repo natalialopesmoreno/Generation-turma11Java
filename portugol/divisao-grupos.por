@@ -59,6 +59,7 @@ programa
 		{
 			escreva("Quantas pessoas por grupo você quer que tenha?")
 			leia(pessoasGrupo)
+			se(pessoasGrupo <= 20){
 			escreva("Matrícula ", " Grupo", " Aluno")
 			
 					para (inteiro a = 0; a < LIMITE ; a = a + pessoasGrupo)
@@ -80,7 +81,10 @@ programa
 						contadorPessoas  = 0
 						contadorGrupo ++
 					}
-			
+			}senao
+			{
+				escreva("Você digitou um número inválido Digite um número menor do que 20")
+				}
 			
 			}
 		}enquanto(resp =='S' ou resp =='s')
@@ -91,7 +95,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2774; 
+ * @POSICAO-CURSOR = 2894; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
