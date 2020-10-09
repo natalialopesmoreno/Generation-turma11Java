@@ -22,20 +22,20 @@ public class ListaJavaExercicio4
 		 */
 
 		
-		int idade =0, sexo =0, humor =0, calmas =0, mulherNervosa =0, homemAgressivo =0, outrosCalmxs =0, mais40Nerv =0, menos18Calmas =0, contador =0;
-		
+		byte idade =0, sexo =0, humor =0, calmas =0, mulherNervosa =0, homemAgressivo =0, outrosCalmxs =0, mais40Nerv =0, menos18Calmas =0, contador =0;
+		final int LIMITE = 150;
 		Scanner leia = new Scanner(System.in);
 		
-		while(contador <=150)
+		while(contador <=LIMITE)
 		{
 			
 			
 			System.out.println("Digite sua idade: ");
-			idade = leia.nextInt();
+			idade = leia.nextByte();
 			System.out.println("Informe o sexo (1-feminino / 2-masculino / 3-Outros ");
-			sexo = leia.nextInt();
+			sexo = leia.nextByte();
 			System.out.println("Informe seu humor: opções (1, se a pessoa era calma; 2, se a pessoa era nervosa e 3, se a pessoa era agressiva)");
-			humor = leia.nextInt();
+			humor = leia.nextByte();
 
 
 			if(humor == 1)
