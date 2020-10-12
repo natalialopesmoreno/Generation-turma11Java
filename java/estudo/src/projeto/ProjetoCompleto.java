@@ -379,8 +379,10 @@ public class ProjetoCompleto
 					}
 				}
 
-				System.out.println("Obrigado por acessar nosso sistema, volte sempre que precisar!");
+				
 			}
+		
+		System.out.println("Obrigado por acessar nosso sistema, volte sempre que precisar!");
 		leia.close();
 	}
 }
