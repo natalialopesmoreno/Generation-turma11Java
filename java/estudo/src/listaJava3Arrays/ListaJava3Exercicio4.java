@@ -19,8 +19,8 @@ public class ListaJava3Exercicio4 {
 		
 		int [][] matriz1= new int[2][2];
 		int [][] matriz2= new int[2][2];
-		int [][] matrizSom= new int[2][2];
-		int [][] matrizSub= new int[2][2];
+		int [][] matrizSom = new int[2][2];
+		int [][] matrizSub = new int[2][2];
 		int linhaMatriz =0;
 		int colunaMatriz =0;
 		int constante = 0;
@@ -72,7 +72,7 @@ public class ListaJava3Exercicio4 {
 				{
 					for(int coluna =0; coluna< 2; coluna++) 
 					{
-						matrizSom[linha][coluna] =(matriz1[linha][coluna]) - (matriz2[linha][coluna]);
+						matrizSub[linha][coluna] =(matriz1[linha][coluna]) - (matriz2[linha][coluna]);
 	
 					} 
 				} 
@@ -84,9 +84,9 @@ public class ListaJava3Exercicio4 {
 				
 				System.out.print("Digite  qual  o valor deseja somar as matrizes?");
 				constante = leia.nextInt();
-				System.out.print("Digite  qual linha deseja adicionar o valor?");
+				System.out.print("Digite  qual linha deseja adicionar o valor? De 0 a 1");
 				linhaMatriz = leia.nextInt();
-				System.out.print("Digite  qual coluna deseja adicionar o valor?");
+				System.out.print("Digite  qual coluna deseja adicionar o valor?De 0 a 1");
 				colunaMatriz = leia.nextInt();
 				
 				matriz1[linhaMatriz][colunaMatriz] += constante;
