@@ -8,6 +8,7 @@ public class ProjetoCompleto
 		public static void main(String[] args) 
 		{
 
+			//CADASTRO
 			LocalDate hoje = LocalDate.now();
 			DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -19,6 +20,7 @@ public class ProjetoCompleto
 			int precos[] = { 200 ,120, 180, 220, 210, 190, 70, 150, 75, 85 };
 			int quantidade[] = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
 
+			//CARRINHO
 			String produtosCarrinho[] = new String[produtos.length];
 			int quantidadeCarrinho[] = new int[produtos.length];
 			int valorCarrinho[] = new int[produtos.length];
@@ -27,30 +29,33 @@ public class ProjetoCompleto
 			int codigoProdutoComprar = 0;
 			int totalItensCarrinho = 0;
 			int quantidadeProdutoCarrinho = 0;
+			
+			//VARIÁVEIS REGULADORAS
 			char contador = 'S';
 			char proximoCliente = 'S';
+			
+			//PAGAMENTO
 			int funcao = 0;
 			int diferencaAlteracao = 0;
-			int opcPgto = 0;// opÃƒÂ§ÃƒÂ£o de pagamento
+			int opcPgto = 0;// opção de pagamento
 			int desconto = 0; // Desconto do pagamento a vista
 			int valorComDesconto = 0; // valor final caso pagamento a vista
-			int parcelaCartao = 0; // opÃƒÂ§ÃƒÂ£o de parcelamento caso escolha pagar no cartÃƒÂ£o
+			int parcelaCartao = 0; // opção de parcelamento caso escolha pagar no cartÃƒÂ£o
 			int qntParcela = 0; // em quantas vezes no cartao a cliente quer fazer
 			int valorParcelado = 0; // o subtotal vai ser dividido pela qntParcela e vai dar isso aqui
-			char perguntaInicial;
 			int contadorTentativas = 3;
 
 			Scanner leia = new Scanner(System.in);
 			//LOGIN
+			
 			while(proximoCliente == 'S')
 			{
 					
-			while(nome == " ")
-			{
+			
 			System.out.println("═══════════════════════ BEM VIDES À ABRACADABRA FANTASIAS ══════════════════════\n");
 			System.out.print("Por favor, digite seu nome: ");
 			nome = leia.next();
-			}
+			
 			//VERIFICAR A RESPOSTA DE SEXO
 			while(sexo != 'F' && sexo != 'M' && sexo != 'O')
 			{
@@ -64,11 +69,14 @@ public class ProjetoCompleto
 			System.out.println();
 			}
 			
+			while(contador != 'S' && contador != 'N') 
+			{
 			System.out.print("Bem vindes " + nome + ", deseja ver nosso catalogo de fantasias [S/N]: \n");
 			contador = leia.next().toUpperCase().charAt(0);
-			//perguntaInicial = leia.next().toUpperCase().charAt(0);
+			}
 			
-					//CARRINHO
+			
+			//CARRINHO
 			while (contador == 'S') {
 							System.out.println(
 									"══════════════════════════ PRODUTOS LOJAS ABRACADABRA ═════════════════════════\n");
@@ -83,9 +91,12 @@ public class ProjetoCompleto
 							
 							System.out.println("═══════════════════════════════════════════════════════════════════════════════");
 							System.out.println();
+							
+	
 							System.out.print(
 									"Escolha uma das opções:\n\n[1]- Inserir produtos ao carrinho \n[2]- Remover algum produto \n[3]- Alterar a quantidade do produto \n[4]- Visualizar carrinho \n[5]- Efetuar o Pagamento \n\nDigite a opção escolhida: ");
 							funcao = leia.nextInt();
+							
 							
 							switch (funcao) 
 							{
@@ -127,10 +138,17 @@ public class ProjetoCompleto
 								}
 								
 								//CONDIÃ‡ÃƒO DE CONTINUA A VER PRODUTOS OU ENCERRA E EFETUA PAGAMENTO 
+								
 								System.out.println();
 								System.out.print("Escolha uma das opções:\n[S] para continuar a ver produtos e menu\n[N] para efetuar o pagamento\n\nDigite a opção escolhida: ");
 								contador = leia.next().toUpperCase().charAt(0);
 								System.out.println();
+								if(contador != 'S' && contador != 'N') 
+								{
+									contador = 'S';
+									System.out.println("Resposta inválida!");
+								}
+								
 								
 								
 								
@@ -168,10 +186,18 @@ public class ProjetoCompleto
 								quantidadeCarrinho[codigoProdutoComprar] = 0; //AQUI É PARA ZERAR A QUANTIDADE DO PRODUTO, O USUÁRIO DECIDIU EXCLUIR TODAS AS UNIDADES DAQUELE PRODUTO
 								
 								//CONDIÃ‡ÃƒO DE CONTINUAR A VER PRODUTOS OU ENCERRA E EFETUA PAGAMENTO
+								
 								System.out.println();
 								System.out.print("Escolha uma das opções:\n[S] para continuar a ver produtos e menu\n[N] para efetuar o pagamento\n\nDigite a opção escolhida: ");
 								contador = leia.next().toUpperCase().charAt(0);
 								System.out.println();
+								if(contador != 'S' && contador != 'N') 
+								{
+									contador = 'S';
+									System.out.println("Resposta inválida!");
+								}
+								
+								
 							
 			
 							} else 
@@ -248,11 +274,21 @@ public class ProjetoCompleto
 							} else 
 							{
 								System.out.println("\nSeu carrinho não contém este produto!\n");// O PRODUTO QUE O USUÁRIO QUER ALTERAR NÃO EXISTE NO CARRINHO ELE PRECISA INSERIR PARA PODER ALTERAR
-								System.out.print("Escolha uma das opções:\n[S] para continuar a ver produtos e menu\n[N] para finalizar o programa\n\nDigite a opção escolhida: ");
-								contador = leia.next().toUpperCase().charAt(0);
-								System.out.println();
 								
 							}
+							
+							//DESEJA CONTINUAR
+							
+							System.out.print("Escolha uma das opções:\n[S] para continuar a ver produtos e menu\n[N] para finalizar o programa\n\nDigite a opção escolhida: ");
+							contador = leia.next().toUpperCase().charAt(0);
+							System.out.println();
+							if(contador != 'S' && contador != 'N') 
+							{
+								contador = 'S';
+								System.out.println("Resposta inválida!");
+							}
+							
+							
 							break;
 						}
 						case 4: 
@@ -278,17 +314,45 @@ public class ProjetoCompleto
 							System.out.println();
 							
 							//CONDIÃ‡ÃƒO DE CONTINUAR A VER PRODUTOS OU ENCERRA E EFETUA PAGAMENTO
+							
 							System.out.println();
 							System.out.print("Escolha uma das opções:\n[S] para continuar a ver produtos e menu\n[N] para efetuar o pagamento\n\nDigite a opção escolhida: ");
 							contador = leia.next().toUpperCase().charAt(0);
 							System.out.println();
 							System.out.println();
+							if(contador != 'S' && contador != 'N') 
+							{
+								contador = 'S';
+								System.out.println("Resposta inválida!");
+							}
+							
 
 			
 							break;
 						}
 						case 5: 
 						{
+							//FINALIZAR A COMPRA
+							if(subtotal == 0) 
+							{
+								System.out.println("Seu carrimho está vazio! Insira algum produto para finalizar sua compra");
+								
+								System.out.println();
+								System.out.print("Escolha uma das opções:\n[S] para continuar a ver produtos e menu\n[N] para finalizar sua compra!\n\nDigite a opção escolhida: ");
+								contador = leia.next().toUpperCase().charAt(0);
+								System.out.println();
+								System.out.println();
+								
+								if(contador != 'S' && contador != 'N') 
+								{
+									contador = 'S';
+									System.out.println("Resposta inválida!");
+								}
+								
+								break;
+								
+
+							}
 							
 							contador = 'N';
 							
@@ -301,14 +365,24 @@ public class ProjetoCompleto
 						default:
 							System.out.println("Opção inválida!");
 							System.out.println();
+							
 							System.out.print("Escolha uma das opções:\n[S] para continuar a ver produtos e menu\n[N] para finalizar o programa\n\nDigite a opção escolhida: ");
 							contador = leia.next().toUpperCase().charAt(0);
 							System.out.println();
+							if(contador != 'S' && contador != 'N') 
+							{
+								contador = 'S';
+								System.out.println("Resposta inválida!");
+							}
+							
 
 			
 					}//fecha switch 
 							
-							for (int i = 0 ; i < 60 ; i++) {
+							// PULA LINHA
+							
+							for (int i = 0 ; i < 60 ; i++) 
+							{
 								System.out.println();
 							}
 						
@@ -322,23 +396,36 @@ public class ProjetoCompleto
 						"══════════════════════════ PAGAMENTO ═════════════════════════\n");
 				System.out.println("O valor total da sua compra ficou em: " + subtotal + " reais.");
 				System.out.println();
+				while(opcPgto != 1 && opcPgto !=2) 
+				{
 				System.out.println("Como gostaria de efetuar o pagamento? ");
 				System.out.print(
 						"[1] À vista com 10% de desconto \n[2] No cartão de crédito em até 3x sem juros \nOpção Escolhida: ");
 				opcPgto = leia.nextInt();
 				System.out.println();
+				}
 				if (opcPgto == 1)
 				{
-					
+					//À VISTA
+					System.out.println("\n");
 					valorComDesconto =(int) (subtotal * 0.9);
 					System.out.println("Valor total a ser pago: " + valorComDesconto);
 					
 				} else if (opcPgto == 2) 
 				{
+					// NO CARTÃO
+					while(parcelaCartao != 1 && parcelaCartao !=2 && parcelaCartao !=3) 
+					{
+					System.out.println("\n");
 					System.out.println("Gostaria de parcelar em quantas vezes?");
 					System.out.print("[1] 1x sem juros \n[2] 2x sem juros \n[3] 3x sem juros \nOpção Escolhida: ");
 					parcelaCartao = leia.nextInt();
 					System.out.println();
+					}
+					for (int i = 0 ; i < 60 ; i++) 
+					{
+						System.out.println();
+					}
 					
 					if (parcelaCartao == 1) 
 					{
@@ -346,7 +433,7 @@ public class ProjetoCompleto
 						
 					} else if (parcelaCartao == 2) 
 					{
-						//qntParcela = 2;
+						
 						valorParcelado = subtotal / parcelaCartao;
 						LocalDate parcela1 = hoje.plusDays(30);
 						LocalDate parcela2 = hoje.plusDays(60);
@@ -355,7 +442,7 @@ public class ProjetoCompleto
 					
 					} else if (parcelaCartao == 3) 
 					{
-						//qntParcela = 3;
+						
 						valorParcelado = subtotal / parcelaCartao;
 						LocalDate parcela1 = hoje.plusDays(30);
 						LocalDate parcela2 = hoje.plusDays(60);
@@ -365,11 +452,20 @@ public class ProjetoCompleto
 						System.out.println("3ª Parcela de " + valorParcelado + " para " + formatador.format(parcela3));
 					}
 				}
+				
+				//PULANDO LINHAS
 		
+				for (int i = 0 ; i < 60 ; i++) 
+				{
+					System.out.println();
+				}
+				
 				//NOTA FISCAL
 				
 				System.out.println(
 						"══════════════════════════ NOTA FISCAL ═════════════════════════");
+				System.out.println();
+				System.out.println();
 				System.out.println(
 						"\nIdentificação do emitente: Lojas Abracadabra - Rua. Conego\nEugenio Leite, 623. 3º andar. Pinheiros - São Paulo - SP  ");
 				System.out.println(
@@ -440,6 +536,7 @@ public class ProjetoCompleto
 		proximoCliente = leia.next().toUpperCase().charAt(0);
 				if(proximoCliente == 'S') 
 				{
+					contador = 'S';
 					for (int x = 0; x < produtosCarrinho.length; x++) 
 					{
 						produtosCarrinho[x] = " ";
@@ -447,6 +544,13 @@ public class ProjetoCompleto
 						valorCarrinho[x] = 0;
 						codigoCarrinho[x] = 0;
 						subtotal = 0;
+					}
+					
+					//PULANDO LINHAS
+					
+					for (int i = 0 ; i < 60 ; i++) 
+					{
+						System.out.println();
 					}
 				}
 				
