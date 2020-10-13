@@ -42,12 +42,11 @@ public class ProjetoCompleto
 
 			Scanner leia = new Scanner(System.in);
 			
-			while(proximoCliente != 'N')
+			while(proximoCliente == 'S')
 			{
 					
 				
 			System.out.println("═══════════════════════ BEM VIDES À ABRACADABRA FANTASIAS ══════════════════════\n");
-			System.out.print("Por favor, digite seu nome: ");
 			System.out.print("Por favor, digite seu nome: ");
 			nome = leia.next();
 			System.out.println("Gênero: [F] - Feminino\n\t[M] - Masculino\n\t[O] - Outros");
@@ -424,7 +423,7 @@ public class ProjetoCompleto
 		
 		System.out.print("Deseja logar novamente? S- sim N- não\n");
 		proximoCliente = leia.next().toUpperCase().charAt(0);
-				if(proximoCliente != 'N') 
+				if(proximoCliente == 'S') 
 				{
 					for (int x = 0; x < produtosCarrinho.length; x++) 
 					{
