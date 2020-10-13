@@ -11,8 +11,8 @@ public class ProjetoCompleto
 			LocalDate hoje = LocalDate.now();
 			DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-			String nome;
-			char sexo;
+			String nome = " ";
+			char sexo= ' ';
 			String produtos[] = { "Fantasia Arlequina" ,"Fantasia Pantera Negra", "Fantasia Super Man",
 					"Fantasia Homem Aranha", "Fantasia Wolverine", "Fantasia Pikachu", "Fantasia Caveira",
 					"Fantasia Branca de Neve", "Fantasia Policial", "Fantasia Bombeiro" };
@@ -41,25 +41,34 @@ public class ProjetoCompleto
 			int contadorTentativas = 3;
 
 			Scanner leia = new Scanner(System.in);
-			
+			//LOGIN
 			while(proximoCliente == 'S')
 			{
 					
-				
+			while(nome == " ")
+			{
 			System.out.println("═══════════════════════ BEM VIDES À ABRACADABRA FANTASIAS ══════════════════════\n");
 			System.out.print("Por favor, digite seu nome: ");
 			nome = leia.next();
+			}
+			//VERIFICAR A RESPOSTA DE SEXO
+			while(sexo != 'F' && sexo != 'M' && sexo != 'O')
+			{
 			System.out.println("Gênero: [F] - Feminino\n\t[M] - Masculino\n\t[O] - Outros");
 			System.out.print("Por favor, digite seu gênero: ");
 			sexo = leia.next().toUpperCase().charAt(0);
+			if(sexo != 'F' && sexo != 'M' && sexo != 'O') 
+			{
+				System.out.println("Resposta inválida!");
+			}
 			System.out.println();
+			}
 			
 			System.out.print("Bem vindes " + nome + ", deseja ver nosso catalogo de fantasias [S/N]: \n");
 			contador = leia.next().toUpperCase().charAt(0);
 			//perguntaInicial = leia.next().toUpperCase().charAt(0);
 			
-					//NÃƒO PRECISA DESSE IF POIS JÃ� TEM O WHILE VALIDANDO A CONDIÃ‡ÃƒO DE ENTRADA
-					//if (perguntaInicial == 'S') {
+					//CARRINHO
 			while (contador == 'S') {
 							System.out.println(
 									"══════════════════════════ PRODUTOS LOJAS ABRACADABRA ═════════════════════════\n");
@@ -104,7 +113,6 @@ public class ProjetoCompleto
 									System.out.printf("\nEsta quantidade não está disponível! Só há %d itens deste produto \n",
 											quantidade[codigoProdutoComprar]);
 									
-									//CASO NÃƒO TENHA A QUANTIDADE ESCOLHIDA ELE VOLTA A PEDIR A QUANTIDADE POR CERTO NÃšMERO DE TENTATIVAS
 									while (quantidadeProdutoCarrinho > quantidade[codigoProdutoComprar] | quantidadeProdutoCarrinho < 0) 
 									{
 										System.out.print("Quantidade de produtos inválida, você tem " + contadorTentativas + " tentativas, por favor digite um número de quantidade válido: ");
@@ -249,6 +257,7 @@ public class ProjetoCompleto
 						}
 						case 4: 
 						{
+							//VISUALIZAÇÃO DO CARRINHO
 							System.out.println(
 									"══════════════════════════ PRODUTOS LOJAS ABRACADABRA ═════════════════════════\n");
 							System.out.print("CÓD ═══════════ QTDE ════════════ PRODUTO ═══════════════════════════════ PREÇO\n");
@@ -280,7 +289,7 @@ public class ProjetoCompleto
 						}
 						case 5: 
 						{
-			
+							
 							contador = 'N';
 							
 							System.out.println("Obrigado por escolher nossa loja! Você será direcionado para página de pagamento!");
@@ -298,15 +307,19 @@ public class ProjetoCompleto
 
 			
 					}//fecha switch 
+							
+							for (int i = 0 ; i < 60 ; i++) {
+								System.out.println();
+							}
 						
 			}// fecha while
 			
-		// pagamento da compra efetuada
+		// PAGAMENTO
 						
 		if(subtotal > 0) 
 			{
 				System.out.println(
-						"══════════════════════════ PRODUTOS MEU CARRINHO ═════════════════════════\n");
+						"══════════════════════════ PAGAMENTO ═════════════════════════\n");
 				System.out.println("O valor total da sua compra ficou em: " + subtotal + " reais.");
 				System.out.println();
 				System.out.println("Como gostaria de efetuar o pagamento? ");
@@ -316,7 +329,7 @@ public class ProjetoCompleto
 				System.out.println();
 				if (opcPgto == 1)
 				{
-					//desconto = (subtotal * 10) / 100;
+					
 					valorComDesconto =(int) (subtotal * 0.9);
 					System.out.println("Valor total a ser pago: " + valorComDesconto);
 					
@@ -353,21 +366,23 @@ public class ProjetoCompleto
 					}
 				}
 		
+				//NOTA FISCAL
+				
 				System.out.println(
 						"══════════════════════════ NOTA FISCAL ═════════════════════════");
 				System.out.println(
-						"Identificação do emitente: Lojas Abracadabra - Rua. Conego\n Eugenio Leite, 623. 3º andar. Pinheiros - São Paulo - SP  ");
+						"\nIdentificação do emitente: Lojas Abracadabra - Rua. Conego\nEugenio Leite, 623. 3º andar. Pinheiros - São Paulo - SP  ");
 				System.out.println(
 						"consulta de autenticidade no portal nacional da NF-e.\n www.nfe.fazenda.gov.br/portal ou no site da Sefaz Autorizada ");
-				System.out.println("NF-e: 000.000.394 ");
+				System.out.println("\nNF-e: 000.000.394 ");
 				System.out.println("Nome/Razão social: " + nome);
 				System.out.println("Sexo: " + sexo);
 		
-				System.out.println("\n CÁLCULO DO IMPOSTO");
+				System.out.println("\nCÁLCULO DO IMPOSTO");
 		
 				System.out.println(
 						"Base de cálculo do ICMS: " + subtotal + " valor do ICMS: " + subtotal * 0.09 + " \nValor do frete: 0");
-				System.out.println("\n DESCRIÇÃO DOS PRODUTOS: ");		
+				System.out.println("\nDESCRIÇÃO DOS PRODUTOS: ");		
 				System.out.println(
 						"══════════════════════════ PRODUTOS LOJAS ABRACADABRA ═════════════════════════\n");
 				System.out.print("CÓD ═══════════ QTDE ════════════ PRODUTO ═══════════════════════════════ PREÇO\n");
