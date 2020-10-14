@@ -10,11 +10,12 @@ public class SorteioGruposAleatorios {
 
 
 		//DECLARANDO OS VETORES
-		final int LIMITE = 39;
-		int mat[] = new int [LIMITE]; // 0-38
-		String lista[] = {"Bruna dos Santos","BRUNO CORREIA DA COSTA","BRUNO DE FREITAS SOUSA","Carla Cristina Conceição de Paula","Christian Garcia Amantino","Cleiton Ortega dos Santos","Debora Miranda Carmona","Everton Luiz Rosário de Oliveira","GABRIEL REIS RITTER","Gildenor Junior da Silva Costa","Guilherme Marcionilo Pedroso do Rosario Silva","Herick Willians Canhete Rocha","Jacqueline Alves Barbosa","João Victor dos Santos Rigoleto","Jonas De Oliveira Santos","JONATHAN CAVALCANTI DE PAULA","Juliana Cavalaro de Oliveira","Karina Soares Lima","Larissa Meira Dominguez","Leonardo Iamur Terra","Lysandro Andrade Martin","Matheus Araujo de moraes","Matheus Fernandes Rodrigues","Matheus Trindade Torok","Mônica dos santos ribeiro","Natália Lopes moreno","Phelipe Almeida de Souza","Rafaela de Albuquerque","Ricardo Martins Corrêa","SARAH LIDIA DE OLIVEIRA BRAIA","Stefanie Dias Costa","Tiago Diniz Gomes","Victor Augusto de Souza Tavares","Vivian Rodrigues Nakano","Washington pereira dos santos","Wellington Vieira","Wesley Bueno da Silva","Yago Tonoli Domingues","Zaine de Queiros Jesus"};
+		//39-ATUALIZANDO A LISTA
+		//Nomes: ,"Larissa Meira Dominguez","Jonas De Oliveira Santos"-ATUALIZANDO A LISTA
+		final int LIMITE = 37;
+		int mat[] = new int [LIMITE]; // 0-37
+		String lista[] = {"Bruna dos Santos","BRUNO CORREIA DA COSTA","BRUNO DE FREITAS SOUSA","Carla Cristina Conceição de Paula","Christian Garcia Amantino","Cleiton Ortega dos Santos","Debora Miranda Carmona","Everton Luiz Rosário de Oliveira","GABRIEL REIS RITTER","Gildenor Junior da Silva Costa","Guilherme Marcionilo Pedroso do Rosario Silva","Herick Willians Canhete Rocha","Jacqueline Alves Barbosa","João Victor dos Santos Rigoleto","JONATHAN CAVALCANTI DE PAULA","Juliana Cavalaro de Oliveira","Karina Soares Lima","Leonardo Iamur Terra","Lysandro Andrade Martin","Matheus Araujo de moraes","Matheus Fernandes Rodrigues","Matheus Trindade Torok","Mônica dos santos ribeiro","Natália Lopes moreno","Phelipe Almeida de Souza","Rafaela de Albuquerque","Ricardo Martins Corrêa","SARAH LIDIA DE OLIVEIRA BRAIA","Stefanie Dias Costa","Tiago Diniz Gomes","Victor Augusto de Souza Tavares","Vivian Rodrigues Nakano","Washington pereira dos santos","Wellington Vieira","Wesley Bueno da Silva","Yago Tonoli Domingues","Zaine de Queiros Jesus"};
 		int x = 0;
-		char resp;
 		int pessoasGrupo =0;
 		int totalSemresto=0;
 		int contador = 0;
@@ -75,6 +76,8 @@ public class SorteioGruposAleatorios {
 			
 			//int numerosSorteados [] = new int [qtdGrupo];
 
+			
+
 				for(int a = 1; a <= qtdGrupo ; a ++)
 				{
 					
@@ -109,7 +112,8 @@ public class SorteioGruposAleatorios {
 								}
 							}
 							}
-							//SE O RESTO NÃO É ZERO É MAIS FÁCIL QUE EU COMPLETO QUE FICOU FALTANDO ABAIXO
+							
+							//SE O RESTO NÃO É ZERO  EU COMPLETO QUE FICOU FALTANDO ABAIXO
 							else 
 							{
 								sorteioPessoa = aleatorio.nextInt(LIMITE-1) + 0;
@@ -127,8 +131,10 @@ public class SorteioGruposAleatorios {
 					}
 				
 				//ESSE  É PRA PREENCHER AS PESSOAS QUE ESTÃO SEM NÚMERO
+				
 				copiaqtdGrupo = qtdGrupo;
-				if(resto !=0) {
+				//SE O RESTO FOR MUITO GRANDE EU CRIO OUTRO GRUPO 
+				if(resto <= pessoasGrupo/2) {
 					for(int a = 0; a < LIMITE ; a ++) 
 					{
 						if(grupo[a] == 0) 
@@ -140,10 +146,24 @@ public class SorteioGruposAleatorios {
 							
 						
 					}
+				}//SE NÃO EU DISTRIBUO NOS GRUPOS QUE JÁ TEM
+				else 
+				{
+					qtdGrupo += 1;
+					for(int a = 0; a < LIMITE ; a ++) 
+					{
+						if(grupo[a] == 0) 
+						{
+								grupo [a] = qtdGrupo;
+								contador++;
+						}
+							
+						
+					}
 				}
 				
 				//AQUI EU IMPRIMO A LISTA DOS GRUPOS
-				for(int a = 0; a <= qtdGrupo ; a ++) 
+				for(int a = 1; a <= qtdGrupo ; a ++) 
 				{
 					System.out.printf("\n-------------GRUPO %d-------------\n", a);
 					for( x = 0; x < LIMITE ; x ++) 
