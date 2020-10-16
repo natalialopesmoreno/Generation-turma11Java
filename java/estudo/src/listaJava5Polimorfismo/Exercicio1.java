@@ -18,17 +18,20 @@ public static void main(String[] args) {
 	Animal cachorro = new Cachorro();
 	cachorro.setNome("cachorrinho");
 	cachorro.setIdade(5);
+	System.out.println(cachorro.getNome());
 	cachorro.emitirSom();
 	
 	Animal cavalo = new Cavalo();
 	cavalo.setNome("cavalinho");
 	cavalo.setIdade(2);
+	System.out.println(cavalo.getNome());
 	cavalo.emitirSom();
 	
 	
 	Animal preguica = new Preguica();
 	preguica.setNome("Preguicinha");
 	preguica.setIdade(25);
+	System.out.println(preguica.getNome());
 	preguica.emitirSom();
 	
 	

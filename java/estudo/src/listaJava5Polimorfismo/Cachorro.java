@@ -18,6 +18,11 @@ public class Cachorro extends Animal {
 		this.cor = cor;
 	}
 	
+	public String getNome() 
+	{
+		return "O nome do cachorro é: "+ super.getNome();
+	}
+	
 	
 	public String getCor() {
 		return cor;

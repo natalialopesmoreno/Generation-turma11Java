@@ -28,6 +28,10 @@ public class Preguica extends Animal
 		
 	}
 	
+	public String getNome() 
+	{
+		return "O nome da preguiça  é: " + super.getNome();
+	}
 	
 
 
