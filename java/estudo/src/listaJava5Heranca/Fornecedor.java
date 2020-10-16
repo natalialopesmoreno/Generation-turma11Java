@@ -6,8 +6,8 @@ public class Fornecedor extends Pessoa
 	//um método obterSaldo() 
 	// * que devolve a diferença entre os valores dos atributos valorCredito e valorDivida.
 	
-	private double valorCredito;
-	private double valorDivida;
+	private double valorCredito, valorDivida;
+	
 	
 
 	

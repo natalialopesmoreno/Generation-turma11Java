@@ -2,9 +2,7 @@ package listaJava5Heranca;
 
 public class Pessoa 
 {
-	private String nome; 
-	private String endereço; 
-	private String telefone;
+	private String nome, telefone, endereço;  
 	private char sexo;
 	
 	public Pessoa(String nome, char sexo) {

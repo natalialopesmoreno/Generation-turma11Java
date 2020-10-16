@@ -13,6 +13,12 @@ public class exercicio6 {
 		Vendedor vend = new Vendedor("Fabio", "R.Sem fim", "0000-0000", 'M', 3500.00);
 		vend.setSalario(3000.00);
 		
+		Pessoa vend2 = new Vendedor();
+		
+		
+		
+		
+		
 		System.out.println(vend.getVencimentoBase());
 		
 		System.out.println(vend.toString());
