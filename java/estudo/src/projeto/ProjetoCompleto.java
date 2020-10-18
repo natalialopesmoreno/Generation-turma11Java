@@ -14,6 +14,7 @@ public class ProjetoCompleto
 
 			String nome = " ";
 			char sexo= ' ';
+			//PRODUTOS
 			String produtos[] = { "Fantasia Arlequina" ,"Fantasia Pantera Negra", "Fantasia Super Man",
 					"Fantasia Homem Aranha", "Fantasia Wolverine", "Fantasia Pikachu", "Fantasia Caveira",
 					"Fantasia Branca de Neve", "Fantasia Policial", "Fantasia Bombeiro" };
