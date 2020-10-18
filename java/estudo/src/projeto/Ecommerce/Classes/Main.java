@@ -309,7 +309,7 @@ public class Main {
 			
 			NotaFiscal nf = new NotaFiscal(pgt, cliente, carrinho);
 			
-			nf.ImprimirNota(leia);
+			nf.ImprimirNota();
 			
 			
 			System.out.println("\nObrigado por acessar nosso sistema, volte sempre que precisar!\n");

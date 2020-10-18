@@ -104,14 +104,11 @@ public class Carrinho
 		{
 			
 			Produto produto = this.buscarProdutoCarrinho(index);
-			//Produto produtoCarrinho = new Produto(produto.getNome(), produto.getPreco(), produto.getQtd());
-			//produtoCarrinho.setCodigo(index);
 			produto.setQtd(qtd);
 			
 			//MODIFICANDO O ESTOQUE
 			this.produtos.get(index).setQtd(this.produtos.get(index).getQtd() - qtd);
-			//int newIndex = this.produtosCarrinho.indexOf(produtoCarrinho);
-			//this.produtosCarrinho.get(newIndex).setQtd(qtd);
+
 			
 			
 			
@@ -150,7 +147,6 @@ public class Carrinho
 		//Atualizando o ESTOQUE
 		
 		Produto produtoEstoque = this.buscarProdutoCatalogo(produto.getCodigo());
-		//int newIndex = this.produtos.indexOf(produto);
 		produtoEstoque.setQtd(produtoEstoque.getQtd() + qtd);
 		return true;
 		}
