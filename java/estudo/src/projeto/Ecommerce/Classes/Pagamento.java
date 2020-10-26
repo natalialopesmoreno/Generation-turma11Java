@@ -78,7 +78,7 @@ public class Pagamento
 	{
 		System.out.println("\n");
 		double valorComDesconto = ((this.carrinho.getSubtotal()) * 0.9);
-		System.out.println("Valor final a ser pago com 10% de desconto: " + valorComDesconto);
+		System.out.printf("\nValor final a ser pago com 10%% de desconto: %.2f ",valorComDesconto);
 		return valorComDesconto;
 	}
 	

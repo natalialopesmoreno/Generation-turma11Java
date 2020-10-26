@@ -41,7 +41,7 @@ public class NotaFiscal {
 			System.out.println();
 			carrinho.visualizarCarrinho();
 	
-			System.out.println("TOTAL: R$ " + carrinho.getSubtotal() + "\n");
+			System.out.printf("\nTOTAL: R$ %.2f \n", carrinho.getSubtotal() );
 			System.out.print("FORMA DE PAGAMENTO\n");
 			
 			if (pagamento.getOpcPgto() == 1) 

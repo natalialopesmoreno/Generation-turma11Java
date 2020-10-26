@@ -28,7 +28,7 @@ public class Carrinho
 		this.setSubtotal(subtotal);
 		this.produtosCarrinho = new ArrayList<Produto>();
 		
-
+		
 		for (Produto produto : produtos) 
 		{
 			Produto pn = new Produto(produto.getNome(), produto.getPreco(), produto.getQtd(), produtos.indexOf(produto));
@@ -220,7 +220,7 @@ public class Carrinho
 		System.out.println();
 		System.out.println("TOTAL DE ITENS NO CARRINHO: "+ totalItens);
 		System.out.println();
-		System.out.println("SUBTOTAL DA COMPRA: "+ subtotal);
+		System.out.printf("\nSUBTOTAL DA COMPRA: R$ %.2f \n", subtotal);
 		
 	}
 

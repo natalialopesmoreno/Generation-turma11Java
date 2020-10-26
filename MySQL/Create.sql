@@ -1,0 +1,4 @@
+CREATE DATABASE aula1;
+#COMENTÁRIO
+USE aula1;
+

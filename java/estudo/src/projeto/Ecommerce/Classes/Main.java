@@ -112,6 +112,8 @@ public class Main {
 								System.out.printf("Prezades %s, digite o código do produto que deseja inserir no seu carrinho:", cliente.getNome());
 								codigoProdutoComprar = leia.nextByte();
 								
+								if(carrinho.buscarProdutoCatalogo(codigoProdutoComprar).getQtd() > 0) 
+								{
 								System.out.printf("O produto que você selecionou é a %s, por favor informe a quantidade: ",
 								carrinho.buscarProdutoCatalogo(codigoProdutoComprar).getNome());
 								quantidadeProdutoCarrinho = leia.nextByte();
@@ -129,6 +131,10 @@ public class Main {
 										System.out.print("Quantidade de produtos inválida, por favor digite um número de quantidade válido: ");
 										quantidadeProdutoCarrinho = leia.nextByte();
 									 }
+								}
+								}else 
+								{
+									System.out.println("Esse ítem não está disponível no estoque!");
 								}
 								
 								//CONDIÇÃO DE CONTINUA A VER PRODUTOS OU ENCERRA E EFETUA PAGAMENTO 
@@ -264,7 +270,7 @@ public class Main {
 			{
 				System.out.println(
 						"══════════════════════════ PAGAMENTO ═════════════════════════\n");
-				System.out.println("O valor total da sua compra ficou em: " + carrinho.getSubtotal() + " reais.");
+				System.out.printf("\nO valor total da sua compra ficou em: %.2f ",carrinho.getSubtotal() + " reais.");
 				System.out.println();
 				
 				

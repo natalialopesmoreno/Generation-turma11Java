@@ -1,0 +1,3 @@
+#1064 -> vc tem um erro de sintaxe no sql
+#1007 -> Alread Exists   -----------------------ja existe"""  :-)  """
+#1008 -> Can t drop database, ele NAO exists """  :-(  """
