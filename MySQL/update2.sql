@@ -13,3 +13,13 @@ Insert into matriculados values
  ('2','CSS', 'Curso de CSS3','20','15','2017'),
  ('3','PHOTOSHOP', 'Curso de Photoshop','10','8','2018'),
  ('4','JAVASCRIPT', 'Curso de JS','40','20','2018');
+
+update matriculados
+set nome = 'HTML5'
+WHERE id_curso = 1;
+
+update matriculados 
+set nome = 'CSS3' , ano ='2018'
+where id_curso = 2;
+
+select * from matriculados;
