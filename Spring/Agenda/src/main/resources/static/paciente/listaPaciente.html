@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="controllerPaciente.js"></script>
+</head>
+<body>
+
+	Esta é a Lista
+	<hr>
+	<a href="index.html"> Home </a> |
+	<a href="listaPaciente.html"> Lista </a> |
+	<a href="inserirPaciente.html"> Inserir </a> |
+	<a href="atualizarPaciente.html">Atualizar</a>
+	<hr>
+
+
+	<br>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<table border="1">
+			<tr>
+				<th>id</th>
+				<th>nome</th>
+				<th>email</th>
+				<th>CPF</th>
+				<th>telefone</th>
+				<th>Psicologa</th>
+				<th>ações</th>
+			</tr>
+			<tr ng-repeat= "p in paciente">
+				<td>{{p.id}}</td>
+				<td>{{p.nome}}</td>
+				<td>{{p.email}}</td>
+				<td>{{p.cpf}}</td>
+				<td>{{p.telefone}}</td>
+				<td>{{p.psicologa.nome}}</td>
+				<td>editar | excluir</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

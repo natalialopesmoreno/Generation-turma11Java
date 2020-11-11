@@ -8,11 +8,11 @@
 		<version>2.3.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>webmvc</artifactId>
+	<groupId>br.com.Agenda</groupId>
+	<artifactId>Agenda</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>webmvc</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Agenda</name>
+	<description>Agenda</description>
 
 	<properties>
 		<java.version>1.8</java.version>

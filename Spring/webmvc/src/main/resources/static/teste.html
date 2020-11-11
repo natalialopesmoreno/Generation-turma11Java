@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <script
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<script src="controller.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="controller.js">
+	
+</script>
 </head>
 <body>
-
-	Esta é a Lista
+	Este Ã© o index
 	<hr>
-	<a href="index.html">Home</a> |
-	<a href="lista.html">Lista</a> |
-	<a href="inserir.html">Inserir</a> |
+	<a href="index.html"> Home </a> |
+	<a href="lista.html"> Lista </a> |
+	<a href="inserir.html"> Inserir </a> |
 	<a href="atualizar.html">Atualizar</a>
-
-
+	<a href="teste.html">Teste</a>
+	<hr>
+	
 	<br>
 	<div ng-app="myApp" ng-controller="myCtrl">
 		<table border="1">
@@ -26,7 +28,7 @@
 				<th>data</th>
 				<th>categoria</th>
 				<th>pago</th>
-				<th>ações</th>
+				<th>aÃ§Ãµes</th>
 			</tr>
 			<tr ng-repeat= "manutencao in manutencao">
 				<td>{{manutencao.id}}</td>
@@ -38,5 +40,8 @@
 			</tr>
 		</table>
 	</div>
+	
+	
+	
 </body>
 </html>

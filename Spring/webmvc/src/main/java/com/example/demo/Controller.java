@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,6 +31,8 @@ public class Controller  implements WebMvcConfigurer
 		//INJETOU O REPOSITÓRIO DO SERVICO PARA COMUNICAR COM O BANCO DE DADOS
 			@Autowired
 			private ManutencaoRepository repository;
+			@Autowired
+			private ManutencaoServices service;
 		// FAÇO O GET DO HTTP e o Read DO CRUD COM O COMANDO .findAll()
 			
 			@GetMapping ("/manutencao")
@@ -37,14 +41,27 @@ public class Controller  implements WebMvcConfigurer
 				return repository.findAll();
 			}
 			
-			@GetMapping ("/manutencao/{id}")
+			@GetMapping("/manutencao/id/{id}")
 			public Optional<ManutencaoTable> buscarUm(@PathVariable Long id) 
-			{		
+			{
 				return repository.findById(id);
 			}
+				
+//				@GetMapping("/manutencoes/id/{id}")
+//				public ResponseEntity<ManutencaoTable> getById(@PathVariable long id){
+//					return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
+//							.orElse(ResponseEntity.notFound().build());
+//				}
+
+			
+//			@GetMapping ("/manutencao/{id}")
+//			public Optional<ManutencaoTable> buscarUm(@PathVariable Long id) 
+//			{		
+//				return repository.findById(id);
+//			}
 			
 			
-			@GetMapping ("/manutencao/{nome}")
+			@GetMapping ("/manutencao/nome/{nome}")
 			public Optional<ManutencaoTable> buscarPorNome(@PathVariable String nome) 
 			{		
 				return repository.findByNome(nome);
@@ -56,6 +73,7 @@ public class Controller  implements WebMvcConfigurer
 			{		
 				return repository.findByNomeAndCategoria(nome, categoria);
 			}
+
 			
 			//DELETE
 			@DeleteMapping ("/manutencao/{id}")
@@ -88,6 +106,27 @@ public class Controller  implements WebMvcConfigurer
 			}
 			
 			
+			
+			
+			//MÉTODOS NOVOS
+			
+			
+			@GetMapping("/manutencao/teste")
+			public List<ManutencaoTable> anosIntervalos() {
+				return repository.anosIntervalos();
+			}
+			
+			
+			
+			 @GetMapping("/teste")
+			    public ResponseEntity<List<ManutencaoTable>> listAllItens() {
+			        List<ManutencaoTable> itens= service.findAllItens();
+			        if(itens.isEmpty()){
+			            return new ResponseEntity<List<ManutencaoTable>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
+			        }
+			        return new ResponseEntity<List<ManutencaoTable>>(itens, HttpStatus.ACCEPTED);
+			    }
+
 	
 	
 	
